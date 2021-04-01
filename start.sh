@@ -1,0 +1,1 @@
+python train_gan.py --dataset elect --model transformermodify_model

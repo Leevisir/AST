@@ -91,6 +91,8 @@ class Embedding(nn.Module):
             output = torch.cat((x, idx.float()), dim=2) # [bs, widow_len, 25]  [bs, window]  wind dataset!!!
         else:
         '''
+        print(idx.shape)
+        print(idx)
         onehot_embed = self.embedding(idx) #[bs, windows_len, embedding_dim(default 20)] 
         try:
             output = torch.cat((x, onehot_embed), dim=-1)

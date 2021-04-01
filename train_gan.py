@@ -263,7 +263,9 @@ if __name__ == '__main__':
     # use GPU if available
     params.ngpu = torch.cuda.device_count()
 
-    params.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    #params.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+
+    params.device = torch.device("cpu")
 
     logger.info('Using Cuda...')
     c = copy.deepcopy
@@ -277,9 +279,9 @@ if __name__ == '__main__':
     model = transformer.EncoderDecoder(params= params, emb = emb, encoder = transformer.Encoder(params, transformer.EncoderLayer(params, c(attn), c(ff), dropout=params.dropout)), decoder = transformer.Decoder(params, transformer.DecoderLayer(params, c(attn), c(attn), c(ff), dropout=params.dropout)), generator = ge)
     discriminator = transformer.Discriminator(params)
 
-    if torch.cuda.device_count() > 1:
-        model = nn.DataParallel(model)
-        discriminator = nn.DataParallel(discriminator)
+    # if torch.cuda.device_count() > 1:
+    #     model = nn.DataParallel(model)
+    #     discriminator = nn.DataParallel(discriminator)
 
     model.to(params.device)
     discriminator.to(params.device)
