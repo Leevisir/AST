@@ -1,23 +1,26 @@
 {
 	"model_dir": "",
+	"gan": "True",
 	"plot_dir": ".",
 	"num_epochs": 100,
-	"d_model": 16,
+	"d_model": 20,
 	"h": 4,
-	"attn_type": "entmax",
+	"attn_type": "softmax",
 	"d_ff": 16,
 	"dropout": 0.1,
-	"num_class": 224,
-	"embedding_dim": 16,
-	"cov_dim": 8,
+	"num_class": 370,
+	"embedding_dim": 20,
+	"cov_dim": 3,
 	"N": 3,
 	"predict_steps": 5,
-	"train_window": 3,
+	"train_window": 192,
 	"batch_size": 100,
 	"predict_batch": 100,
 	"lr_d": 0.001,
 	"lr": 0.001,
 	"lr_schedule": "warmup_cosine",
 	"lr_warmup": 0.001,
-	"predict_start": 8
+	"predict_start": 187
 }
+
+

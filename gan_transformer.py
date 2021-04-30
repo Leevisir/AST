@@ -39,6 +39,8 @@ class EncoderDecoder(nn.Module):
     def encode(self, x, idx):
         src_mask = (x[:,:,0]!=0).unsqueeze(-2)
         src_mask1 = make_std_mask(x[:,:,0], 0)
+        # print(idx.shape)
+        # print(x.shape)
         embeded = self.emb(x, idx)
         encoder_out = self.encoder(embeded, None)
         
@@ -78,6 +80,7 @@ class Embedding(nn.Module):
         else:
         '''
         self.embedding
+        # print("init: ", params.embedding_dim + params.cov_dim+ 1)
         self.embed1 = nn.Linear(params.embedding_dim + params.cov_dim+ 1, params.d_model)
         self.embed2 = position
         
@@ -91,14 +94,18 @@ class Embedding(nn.Module):
             output = torch.cat((x, idx.float()), dim=2) # [bs, widow_len, 25]  [bs, window]  wind dataset!!!
         else:
         '''
-        print(idx.shape)
-        print(idx)
+        # print(idx.shape)
+        # print(idx)
         onehot_embed = self.embedding(idx) #[bs, windows_len, embedding_dim(default 20)] 
-        try:
-            output = torch.cat((x, onehot_embed), dim=-1)
-            output = self.embed2(self.embed1(output))
-        except:
-            embed()
+        output = torch.cat((x, onehot_embed), dim=-1)
+        tmp = self.embed1(output)
+        output = self.embed2(tmp)
+        # try:
+        #     output = torch.cat((x, onehot_embed), dim=-1)
+        #     output = self.embed2(self.embed1(output))
+        # except Exception as e:
+        #     print(e)
+        #     # embed()
         return output
         
 class Generator(nn.Module):
@@ -179,7 +186,7 @@ class LayerNorm(nn.Module):
 
     def forward(self, x):
         mean = x.mean(-1, keepdim=True)
-        std = x.std(-1, keepdim=True)
+        std = x.std(-1, keepdim=True)        
         return self.a_2 * (x - mean) / (std + self.eps) + self.b_2
         
 class SublayerConnection(nn.Module):
@@ -256,7 +263,9 @@ def attention(query, key, value, params, mask=None, dropout=None, alpha=None):
     elif params.attn_type=='entmax15':
         p_attn = entmax15(scores, dim=-1)
     elif params.attn_type=='entmax':
-        p_attn = EntmaxBisect(scores, alpha, n_iter=25)
+        p_attn = EntmaxBisect(alpha=alpha, n_iter=25)
+        # print(alpha)
+        p_attn = p_attn.forward(X=scores, alpha=alpha)
     else:
         raise Exception
     if dropout is not None:

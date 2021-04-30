@@ -5,6 +5,7 @@ from torch.nn.utils import clip_grad_norm_
 
 def warmup_cosine(x, warmup=0.002):
     s = 1 if x <= warmup else 0
+    # print(x)
     return s*(x/warmup) + (1-s)*(0.5 * (1 + torch.cos(math.pi * x)))
 
 def warmup_constant(x, warmup=0.002):
@@ -43,6 +44,7 @@ class OpenAIAdam(Optimizer):
         defaults = dict(lr=lr, schedule=schedule, warmup=warmup, t_total=t_total,
                         b1=b1, b2=b2, e=e, l2=l2, vector_l2=vector_l2,
                         max_grad_norm=max_grad_norm)
+        # print(params)
         super(OpenAIAdam, self).__init__(params, defaults)
 
     def step(self, closure=None):
@@ -56,6 +58,7 @@ class OpenAIAdam(Optimizer):
         if closure is not None:
             loss = closure()
 
+        # print(self.param_groups.keys())
         for group in self.param_groups:
             for p in group['params']:
                 if p.grad is None:
@@ -92,7 +95,7 @@ class OpenAIAdam(Optimizer):
                 bias_correction2 = 1 - beta2 ** state['step']
 
                 schedule_fct = SCHEDULES[group['schedule']]
-                lr_scheduled = group['lr'] * schedule_fct(state['step']/group['t_total'], group['warmup'])
+                lr_scheduled = group['lr'] * schedule_fct(torch.tensor(state['step']/group['t_total']), group['warmup'])
                 step_size = lr_scheduled * math.sqrt(bias_correction2) / bias_correction1
 
                 p.data.addcdiv_(-step_size, exp_avg, denom)

@@ -75,6 +75,8 @@ def train(model: nn.Module,
         fake = torch.autograd.Variable(torch.cuda.FloatTensor(batch_size, 1).fill_(0.0), requires_grad=False)
         
         labels = labels_batch[:,params.predict_start:]
+        # print(idx.shape)
+        # print(train_batch.shape)
         q50, q90 = model.forward(train_batch, idx)   
         d_loss = 0
         if params.gan=='False':
@@ -86,6 +88,9 @@ def train(model: nn.Module,
             loss_epoch[i] = g_loss
         else:
             fake_input = torch.cat((labels_batch[:,:params.predict_start], q50), 1)
+            # print(fake_input.shape)
+            # print(params.predict_start)
+            # print(q50.shape)
             #-------------------------------------------------------------------
             # Train the generator 
             #-------------------------------------------------------------------
@@ -263,9 +268,9 @@ if __name__ == '__main__':
     # use GPU if available
     params.ngpu = torch.cuda.device_count()
 
-    #params.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    params.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
-    params.device = torch.device("cpu")
+    # params.device = torch.device("cpu")
 
     logger.info('Using Cuda...')
     c = copy.deepcopy
