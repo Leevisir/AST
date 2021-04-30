@@ -1,3 +1,4 @@
 train_window = predict_steps + predict_start
 train_window = window_size in preprocess_data.py
 cov_dim = num_covariates in preprocess_data.py
+predict_start = test_predict_start

@@ -1,13 +1,65 @@
-[22:27:27] Transformer.Train: Loading the datasets...
-[22:27:28] Transformer.Data: train_len: 126556
-[22:27:28] Transformer.Data: building datasets from data/elect...
-[22:27:28] Transformer.Data: valid_len: 2590
-[22:27:28] Transformer.Data: building datasets from data/elect...
-[22:27:28] Transformer.Data: test_len: 2590
-[22:27:28] Transformer.Data: building datasets from data/elect...
-[22:27:28] Transformer.Train: Loading complete.
-[22:27:28] Transformer.Train: Starting training for 100 epoch(s)
-[22:27:28] Transformer.Train: begin training and evaluation
-[22:27:28] Transformer.Train: My Transformer have 27834 paramerters in total
-[22:27:28] Transformer.Train: Epoch 1/100
-[22:27:28] Transformer.Train: G_loss: 2.039257049560547 ; D_loss: 0.6926991939544678
+[11:00:54] Transformer.Train: Loading the datasets...
+[11:00:54] Transformer.Data: train_len: 126556
+[11:00:54] Transformer.Data: building datasets from data/elect...
+[11:00:54] Transformer.Data: valid_len: 2590
+[11:00:54] Transformer.Data: building datasets from data/elect...
+[11:00:54] Transformer.Data: test_len: 2590
+[11:00:54] Transformer.Data: building datasets from data/elect...
+[11:00:54] Transformer.Train: Loading complete.
+[11:00:54] Transformer.Train: Starting training for 100 epoch(s)
+[11:00:54] Transformer.Train: begin training and evaluation
+[11:00:54] Transformer.Train: My Transformer have 27834 paramerters in total
+[11:00:54] Transformer.Train: Epoch 1/100
+[11:00:55] Transformer.Train: G_loss: 1.3098643620808919 ; D_loss: 0.7059162855148315
+[11:02:01] Transformer.Train: G_loss: 0.3137179414431254 ; D_loss: 0.6893734931945801
+[11:02:19] Transformer.Eval: - Full test metrics: ND: 0.789; RMSE: 4.086; test_loss: 630614.188; Q90: 1.403; Q50: 0.790; q50: 0.790; q90: 0.966; MAPE: 82.853
+[11:02:19] Transformer.Eval: - Full test metrics: ND: 0.787; RMSE: 3.943; test_loss: 654986.500; Q90: 1.404; Q50: 0.787; q50: 0.787; q90: 0.965; MAPE: 84.555
+[11:02:19] Transformer.Utils: Checkpoint saved to experiments/transformermodify_model/epoch_0.pth.tar
+[11:02:19] Transformer.Utils: Best checkpoint copied to best.pth.tar
+[11:02:19] Transformer.Train: - Found new best Q90/Q50
+[11:02:19] Transformer.Train: Epoch 2/100
+[11:02:19] Transformer.Train: G_loss: 0.3293163975079854 ; D_loss: 0.6876652240753174
+[11:03:25] Transformer.Train: G_loss: 0.23791865507761636 ; D_loss: 0.6922527551651001
+[11:03:43] Transformer.Eval: - Full test metrics: ND: 0.791; RMSE: 4.087; test_loss: 639824.812; Q90: 1.400; Q50: 0.792; q50: 0.792; q90: 0.944; MAPE: 82.661
+[11:03:44] Transformer.Eval: - Full test metrics: ND: 0.786; RMSE: 3.944; test_loss: 660931.312; Q90: 1.401; Q50: 0.786; q50: 0.786; q90: 0.943; MAPE: 83.614
+[11:03:44] Transformer.Utils: Checkpoint saved to experiments/transformermodify_model/epoch_1.pth.tar
+[11:03:44] Transformer.Utils: Best checkpoint copied to best.pth.tar
+[11:03:44] Transformer.Train: - Found new best Q90/Q50
+[11:03:44] Transformer.Train: Epoch 3/100
+[11:03:44] Transformer.Train: G_loss: 0.20472989479700723 ; D_loss: 0.6933038234710693
+[11:04:50] Transformer.Train: G_loss: 0.2360691030820211 ; D_loss: 0.6896213889122009
+[11:05:08] Transformer.Eval: - Full test metrics: ND: 0.792; RMSE: 4.089; test_loss: 644108.625; Q90: 1.397; Q50: 0.794; q50: 0.794; q90: 0.930; MAPE: 82.793
+[11:05:08] Transformer.Eval: - Full test metrics: ND: 0.786; RMSE: 3.945; test_loss: 665612.062; Q90: 1.397; Q50: 0.786; q50: 0.786; q90: 0.930; MAPE: 83.566
+[11:05:08] Transformer.Utils: Checkpoint saved to experiments/transformermodify_model/epoch_2.pth.tar
+[11:05:08] Transformer.Train: Epoch 4/100
+[11:05:08] Transformer.Train: G_loss: 0.20137099424997965 ; D_loss: 0.6913131475448608
+[11:06:14] Transformer.Train: G_loss: 0.1876197655995687 ; D_loss: 0.6902199983596802
+[11:06:32] Transformer.Eval: - Full test metrics: ND: 0.790; RMSE: 4.087; test_loss: 642089.562; Q90: 1.398; Q50: 0.791; q50: 0.791; q90: 0.934; MAPE: 82.631
+[11:06:32] Transformer.Eval: - Full test metrics: ND: 0.785; RMSE: 3.944; test_loss: 664378.750; Q90: 1.398; Q50: 0.785; q50: 0.785; q90: 0.934; MAPE: 83.577
+[11:06:32] Transformer.Utils: Checkpoint saved to experiments/transformermodify_model/epoch_3.pth.tar
+[11:06:32] Transformer.Utils: Best checkpoint copied to best.pth.tar
+[11:06:32] Transformer.Train: - Found new best Q90/Q50
+[11:06:32] Transformer.Train: Epoch 5/100
+[11:06:32] Transformer.Train: G_loss: 0.2191819945971171 ; D_loss: 0.6945682168006897
+[11:07:38] Transformer.Train: G_loss: 0.19894587993621826 ; D_loss: 0.6839293241500854
+[11:07:56] Transformer.Eval: - Full test metrics: ND: 0.790; RMSE: 4.087; test_loss: 642795.000; Q90: 1.398; Q50: 0.791; q50: 0.791; q90: 0.948; MAPE: 82.417
+[11:07:56] Transformer.Eval: - Full test metrics: ND: 0.785; RMSE: 3.944; test_loss: 664462.062; Q90: 1.398; Q50: 0.785; q50: 0.785; q90: 0.947; MAPE: 83.245
+[11:07:56] Transformer.Utils: Checkpoint saved to experiments/transformermodify_model/epoch_4.pth.tar
+[11:07:56] Transformer.Utils: Best checkpoint copied to best.pth.tar
+[11:07:56] Transformer.Train: - Found new best Q90/Q50
+[11:07:56] Transformer.Train: Epoch 6/100
+[11:07:56] Transformer.Train: G_loss: 0.204181174437205 ; D_loss: 0.7084875702857971
+[11:09:02] Transformer.Train: G_loss: 0.1823081374168396 ; D_loss: 0.6866284608840942
+[11:09:20] Transformer.Eval: - Full test metrics: ND: 0.789; RMSE: 4.086; test_loss: 642130.250; Q90: 1.397; Q50: 0.789; q50: 0.789; q90: 0.941; MAPE: 82.261
+[11:09:20] Transformer.Eval: - Full test metrics: ND: 0.785; RMSE: 3.944; test_loss: 665503.188; Q90: 1.398; Q50: 0.785; q50: 0.785; q90: 0.942; MAPE: 83.373
+[11:09:20] Transformer.Utils: Checkpoint saved to experiments/transformermodify_model/epoch_5.pth.tar
+[11:09:20] Transformer.Train: Epoch 7/100
+[11:09:21] Transformer.Train: G_loss: 0.1819234291712443 ; D_loss: 0.6884990930557251
+[11:10:26] Transformer.Train: G_loss: 0.1914669076601664 ; D_loss: 0.681637167930603
+[11:10:44] Transformer.Eval: - Full test metrics: ND: 0.789; RMSE: 4.086; test_loss: 640730.625; Q90: 1.398; Q50: 0.790; q50: 0.790; q90: 0.942; MAPE: 82.308
+[11:10:45] Transformer.Eval: - Full test metrics: ND: 0.785; RMSE: 3.944; test_loss: 665991.188; Q90: 1.398; Q50: 0.785; q50: 0.785; q90: 0.941; MAPE: 83.415
+[11:10:45] Transformer.Utils: Checkpoint saved to experiments/transformermodify_model/epoch_6.pth.tar
+[11:10:45] Transformer.Utils: Best checkpoint copied to best.pth.tar
+[11:10:45] Transformer.Train: - Found new best Q90/Q50
+[11:10:45] Transformer.Train: Epoch 8/100
+[11:10:45] Transformer.Train: G_loss: 0.17751840750376383 ; D_loss: 0.6821830868721008

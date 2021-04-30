@@ -20,7 +20,8 @@
 	"lr": 0.001,
 	"lr_schedule": "warmup_cosine",
 	"lr_warmup": 0.001,
-	"predict_start": 187
+	"predict_start": 187,
+	"test_predict_start": 187
 }
 
 

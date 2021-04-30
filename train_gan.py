@@ -178,7 +178,8 @@ def train_and_evaluate(model: nn.Module,
         
         test_metrics = evaluate(model, test_loader, params, epoch)
         valid_metrics = evaluate(model, valid_loader, params, epoch)
-        loss_test[epoch * test_len:(epoch + 1) * test_len] = test_metrics['loss'].cpu()
+        # print(test_metrics.keys())
+        loss_test[epoch * test_len:(epoch + 1) * test_len] = test_metrics['test_loss']
 
         q50_valid[epoch] = valid_metrics['q50']
         q90_valid[epoch] = valid_metrics['q90']
